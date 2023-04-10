@@ -17,4 +17,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://127.0.0.1:3000/api/cars/16
+DELETE http://127.0.0.1:3000/api/cars/20

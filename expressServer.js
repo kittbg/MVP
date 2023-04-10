@@ -33,10 +33,10 @@ app.post('/api/cars', async(req, res)=>{
     let price = req.body.price;
     try {
      await client.query('INSERT INTO cars (make, model, year, color, price) VALUES ($1, $2, $3, $4, $5)', [make, model, year, color, price]);
-     res.send('Car added to the inventory.')
+     res.json('Car added to the inventory.')
     } catch (err){
         console.error(err);
-        res.status(400).send('Addition to the inventory failed.')
+        res.status(400).send.json('Addition to the inventory failed.')
     }
 })
 
@@ -44,10 +44,10 @@ app.delete('/api/cars/:id', async (req, res)=>{
     let id = req.params.id
     try {
        await client.query('DELETE FROM cars WHERE id = $1', [id]);
-       res.send('Car deleted from the inventory.')
+       res.json('Car deleted from the inventory.')
     } catch (err){
         console.error(err);
-        res.status(400).send('Deletion of car entry failed.')
+        res.status(400).send.json('Deletion of car entry failed.')
     }
 })
 
