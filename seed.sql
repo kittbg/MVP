@@ -1,0 +1,15 @@
+INSERT INTO cars (make, model, year, color, price) VALUES ('Tesla', 'Model 3', 2021, 'white', 39000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Tesla', 'Model Y', 2022, 'red', 61000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Tesla', 'Model S', 2021, 'black', 92000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Tesla', 'Model X', 2019, 'white', 98000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Ford', 'F-150', 2018, 'blue', 45000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Ford', 'Mustang', 2017, 'gray', 32000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Ford', 'Explorer', 2018, 'silver', 40000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Ford', 'Escort', 2020, 'green', 23000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Toyota', 'Corolla', 2017, 'silver', 16000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Toyota', 'Tundra', 2020, 'yellow', 40000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Toyota', 'Camry', 2019, 'red', 32000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Toyota', 'Highlander', 2017, 'black', 33000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Jeep', 'Wrangler', 2021, 'blue', 34000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Jeep', 'Wrangler', 2020, 'yellow', 30000);
+INSERT INTO cars (make, model, year, color, price) VALUES ('Jeep', 'Gladiator', 2021, 'white', 35000);
