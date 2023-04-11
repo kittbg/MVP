@@ -31,8 +31,10 @@ app.post('/api/cars', async(req, res)=>{
     let year = req.body.year;
     let color = req.body.color;
     let price = req.body.price;
+    let image = req.body.image;
+
     try {
-     await client.query('INSERT INTO cars (make, model, year, color, price) VALUES ($1, $2, $3, $4, $5)', [make, model, year, color, price]);
+     await client.query('INSERT INTO cars (make, model, year, color, price, image) VALUES ($1, $2, $3, $4, $5, $6)', [make, model, year, color, price, image]);
      res.json('Car added to the inventory.')
     } catch (err){
         console.error(err);
@@ -62,13 +64,13 @@ app.patch('/api/cars/:id', async(req, res)=>{
     try{
      let results = await client.query(`UPDATE cars SET `+ key +` = $1 WHERE id = $2`, [value, id])
      if (results.rowCount === 0){
-        res.status(404).send.json(`Car with ${id} was not found`)
+        res.status(404).json(`Car with ${id} was not found`)
      } else {
      res.json('Entry successfully updated.')
      }
     } catch (err){
         console.error(err)
-        res.status(404).send.json('Entry update failed.')
+        res.status(404).json('Entry update failed.')
     }
 })
 
