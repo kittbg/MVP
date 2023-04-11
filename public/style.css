@@ -5,10 +5,15 @@
    /* #results{
     border: solid black 5px;
    }  */
-   body{
-       background-color: black;
-       background-repeat: no-repeat;
-       background-size: cover;
-       background-position: center;
-       background-attachment: fixed;
+
+   .col-8 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 10px;
+   }
+
+   .button {
+    gap: 10px;
+    row-gap: 10px;
    }

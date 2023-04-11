@@ -7,7 +7,7 @@ fetch('/api/cars')
  .then(data => {
      for (let i = 0; i < data.length; i++){
      let cars = data[i];
-     let cards = $(`<div class="card border-danger mb-3 bg-dark-subtle" style="width: 18rem;">
+     let cards = $(`<div class="card border-warning mb-3 bg-dark-subtle" style="width: 12rem;">
      <img src="..." class="card-img-top" alt="...">
        <div class="card-body">
        <h5 class="card-title">${cars.make}</h5>
