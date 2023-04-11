@@ -17,7 +17,7 @@ app.get('/', (req, res)=> {
 
 app.get('/api/cars', async(req, res)=>{
     try {
-    let results = await client.query('SELECT * FROM cars');
+    let results = await client.query('SELECT * FROM cars order by id');
     res.json(results.rows)
     } catch (err){
         console.error(err);
@@ -43,14 +43,34 @@ app.post('/api/cars', async(req, res)=>{
 app.delete('/api/cars/:id', async (req, res)=>{
     let id = req.params.id
     try {
-       await client.query('DELETE FROM cars WHERE id = $1', [id]);
-       res.json('Car deleted from the inventory.')
+       let results = await client.query('DELETE FROM cars WHERE id = $1 returning *', [id]);
+       if (results.rows.length == 0){
+       res.json('No car found at this ID.')
+    } else {
+        res.json('Car successfully deleted.')
+    }
     } catch (err){
         console.error(err);
-        res.status(400).send.json('Deletion of car entry failed.')
+        res.status(400).send('Deletion of car entry failed.')
     }
 })
 
+app.patch('/api/cars/:id', async(req, res)=>{
+    let id = req.params.id
+    let key = Object.keys(req.body)[0];
+    let value = Object.values(req.body)[0];
+    try{
+     let results = await client.query(`UPDATE cars SET `+ key +` = $1 WHERE id = $2`, [value, id])
+     if (results.rowCount === 0){
+        res.status(404).send.json(`Car with ${id} was not found`)
+     } else {
+     res.json('Entry successfully updated.')
+     }
+    } catch (err){
+        console.error(err)
+        res.status(404).send.json('Entry update failed.')
+    }
+})
 
 app.listen(port, (error)=>{
     if (error){

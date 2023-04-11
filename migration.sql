@@ -6,5 +6,8 @@ CREATE TABLE cars (
     model varchar(30),
     year integer,
     color varchar(30),
-    price integer
+    price integer,
+    image text
 );
+
+

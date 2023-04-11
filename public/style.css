@@ -17,3 +17,8 @@
     gap: 10px;
     row-gap: 10px;
    }
+
+   .col-3 {
+    position: sticky!important;
+    top: 0;
+   }

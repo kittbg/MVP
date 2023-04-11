@@ -17,4 +17,12 @@ Content-Type: application/json
 }
 
 ###
+PATCH http://127.0.0.1:3000/api/cars/36
+Content-Type: application/json
+
+{
+    "year": 2000
+}
+
+###
 DELETE http://127.0.0.1:3000/api/cars/20

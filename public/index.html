@@ -30,9 +30,10 @@
         </div>
 
         <div class="row">
-            <div class="col-3">
+            <div class="col-2 d-flex flex-column mb-3 justify-content-start">
                 <div class="box"></div>
-              <h4>Add vehicle to inventory</h4>
+                <span class="border border-warning border-3">
+              <h4>Add Vehicle</h4>
               <input type="text" id="make" placeholder="Enter make">
               <input type="text" id="model" placeholder="Enter model">
               <input type="text" id="year" placeholder="Enter year">
@@ -40,17 +41,39 @@
               <input type="text" id="price" placeholder="Enter price">
               <p></p>
               <button class="button">Submit</button>
+            </span>
               <p></p>
-              <h4>Delete vehicle from inventory</h4>
+              <span class="border border-warning border-3">
+              <h4>Delete Vehicle</h4>
               <p></p>
               <input type="intger" id="kill" placeholder="Enter ID">
               <p></p>
               <button class="delete">Delete</button>
+            </span>
+              <p></p>
+              <span class="border border-warning border-3">
+              <h4>Update Car Details</h4>
+              <p></p>
+              <input type="intger" id="updateID" placeholder="Enter ID">
+              <p></p>
+              
+              <select name="cars" id="spec">
+                <option value="Make">Make</option>
+                <option value="Model">Model</option>
+                <option value="Year">Year</option>
+                <option value="Color">Color</option>
+                <option value="Price">Price</option>
+                <option value="Price">Image</option>
+              </select>
+              <p></p>
+              <input type="text" id="value" placeholder="New Value">
+              <p></p>
+              <button class="updateCar">Submit</button>
+            </span>
           </div>
           <div class="col-8 d-flex justify-content-center">
 
-          </div>
-          
+        </div>  
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
