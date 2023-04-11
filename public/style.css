@@ -1,0 +1,14 @@
+.card-image {
+    height: 250px;
+    width: 250px;
+   }
+   /* #results{
+    border: solid black 5px;
+   }  */
+   body{
+       background-color: black;
+       background-repeat: no-repeat;
+       background-size: cover;
+       background-position: center;
+       background-attachment: fixed;
+   }
