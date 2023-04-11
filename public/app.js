@@ -28,13 +28,14 @@ fetch('http://127.0.0.1:3000/api/cars')
 }
 cardBuild();
 
-$button.on('click', ()=>{
+$button.on('click', ()=>{  //builds cards
     $div.empty();
     let make = $("#make").val();
     let model = $("#model").val();
     let year = $("#year").val();
     let color = $("#color").val();
-    let price = $("#price").val(); 
+    let price = $("#price").val();
+    let image = $("#image").val(); 
     if (!make || !model || !year || !color || !price){
         alert("All fields are required.");
         cardBuild();
@@ -45,10 +46,11 @@ $button.on('click', ()=>{
         model: model,
         year: year,
         color: color,
-        price: price
+        price: price,
+        image: image
     };
    
-    fetch('http://127.0.0.1:3000/api/cars', {
+    fetch('http://127.0.0.1:3000/api/cars', { //POSTs new vehicles
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -64,11 +66,12 @@ $button.on('click', ()=>{
         $("#year").val("");
         $("#color").val("");
         $("#price").val("");
+        $("#image").val("");
         cardBuild();
     })
 })
 
-$delete.on('click', () => {
+$delete.on('click', () => {  //DELETEs vehicles
     $div.empty();
     let id = $('#kill').val();
     fetch(`http://127.0.0.1:3000/api/cars/${id}`, {
@@ -83,12 +86,12 @@ $delete.on('click', () => {
 })
 })
 
-$update.on('click', ()=> {
+$update.on('click', ()=> {  //PATCH entries
     $div.empty();
     let id = $('#updateID').val();
     let feature = $("#spec").val();
-    let data = {}
     let value = $("#value").val();
+    let data = {}
     data[feature] = value
 
     fetch(`http://127.0.0.1:3000/api/cars/${id}`, {
