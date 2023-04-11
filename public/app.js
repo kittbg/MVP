@@ -5,7 +5,7 @@ const $update = $('.updateCar')
 
 
 function cardBuild(){
-fetch('http://127.0.0.1:3000/api/cars')
+fetch('https://expressserver-6z2l.onrender.com/api/cars')
 .then(response => response.json())
 .then(data => {
     for (let i = 0; i < data.length; i++){
@@ -50,7 +50,7 @@ $button.on('click', ()=>{  //builds cards
         image: image
     };
    
-    fetch('http://127.0.0.1:3000/api/cars', { //POSTs new vehicles
+    fetch('https://expressserver-6z2l.onrender.com/api/cars', { //POSTs new vehicles
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ $button.on('click', ()=>{  //builds cards
 $delete.on('click', () => {  //DELETEs vehicles
     $div.empty();
     let id = $('#kill').val();
-    fetch(`http://127.0.0.1:3000/api/cars/${id}`, {
+    fetch(`https://expressserver-6z2l.onrender.com/api/cars/${id}`, {
       method: 'DELETE'
     }) 
       .then(response => response.json())
@@ -94,7 +94,7 @@ $update.on('click', ()=> {  //PATCH entries
     let data = {}
     data[feature] = value
 
-    fetch(`http://127.0.0.1:3000/api/cars/${id}`, {
+    fetch(`https://expressserver-6z2l.onrender.com/api/cars/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
