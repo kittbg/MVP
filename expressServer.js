@@ -25,6 +25,17 @@ app.get('/api/cars', async(req, res)=>{
     }
 })
 
+// app.get(`/api/cars/${input}`, async(req, res)=>{
+//     let value = Object.values(req.body)[0]
+//     try {
+//      let results = await client.query(`SELECT * FROM cars WHERE ${input} = $1`, [value])
+//      res.json(results.rows)
+//     } catch (err){
+//         console.error(err)
+//         res.status(500).json(`You can't catch me.  I'm the gingerbread man!`)
+//     }
+// })
+
 app.post('/api/cars', async(req, res)=>{
     let make = req.body.make;
     let model = req.body.model;
