@@ -19,7 +19,7 @@ fetch('https://expressserver-6z2l.onrender.com/api/cars')
             let cars = data[i];
         if (cars.model.toLowerCase().includes(value) || cars.year == value || cars.color.toLowerCase().includes(value) || (cars.price == value) || cars.make.toLowerCase().includes(value)){
 
-            let cards = $(`<div class="card border-warning mb-3 bg-dark-subtle" style="width: 12rem;">
+            let cards = $(`<div class="card border-warning mb-3 bg-dark-subtle" style="width: 12rem">
             <img src="${cars.image}" class="card-img-top">
             <div class="card-body">
             <h5 class="card-title">${cars.make}</h5>
