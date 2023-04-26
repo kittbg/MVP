@@ -1,28 +1,38 @@
-.card-image {
-    height: 250px;
-    width: 250px;
-   }
-   /* #results{
-    border: solid black 5px;
-   }  */
-
-   .col-8 {
+   /* .col-8 {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
     row-gap: 10px;
-   }
+   } */
 
    .button {
     gap: 10px;
     row-gap: 10px;
    }
 
-   .col-3 {
+   .row sticky-top {
     position: sticky!important;
     top: 0;
+    z-index: 1;
    }
-
+   
+   .col-8 {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     gap: 10px
+   }
+   
    .card {
-    height: 400px;
+     width: 25%;
+     float: left;
+     max-height: 400px; /* adjust this value to your desired height */
+    overflow: hidden;
+     /* additional styling properties */
+   }
+   
+   @media screen and (max-width: 768px) {
+     .card {
+       width: 100%;
+     }
    }

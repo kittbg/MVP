@@ -11,7 +11,7 @@ $filter.on('click', ()=>{
 })
 
 function cardBuild(){
-fetch('https://expressserver-6z2l.onrender.com/api/cars')
+fetch('http://localhost:3000/api/cars')
 .then(response => response.json())
 .then(data => {
         let value = $search.val().toLowerCase();
@@ -19,7 +19,7 @@ fetch('https://expressserver-6z2l.onrender.com/api/cars')
             let cars = data[i];
         if (cars.model.toLowerCase().includes(value) || cars.year == value || cars.color.toLowerCase().includes(value) || (cars.price == value) || cars.make.toLowerCase().includes(value)){
 
-            let cards = $(`<div class="card border-warning mb-3 bg-dark-subtle" style="width: 12rem">
+            let cards = $(`<div id="${cars.id}" class="card border-warning mb-3 bg-dark-subtle col-3">
             <img src="${cars.image}" class="card-img-top">
             <div class="card-body">
             <h5 class="card-title">${cars.make}</h5>
@@ -61,7 +61,7 @@ $button.on('click', ()=>{  //builds cards
         image: image
     };
    
-    fetch('https://expressserver-6z2l.onrender.com/api/cars', { //POSTs new vehicles
+    fetch('http://localhost:3000/api/cars', { //POSTs new vehicles
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -83,9 +83,9 @@ $button.on('click', ()=>{  //builds cards
 })
 
 $delete.on('click', () => {  //DELETEs vehicles
-    $div.empty();
+    // $div.empty();
     let id = $('#kill').val();
-    fetch(`https://expressserver-6z2l.onrender.com/api/cars/${id}`, {
+    fetch(`http://localhost:3000/api/cars/${id}`, {
       method: 'DELETE'
     }) 
       .then(response => response.json())
@@ -93,7 +93,8 @@ $delete.on('click', () => {  //DELETEs vehicles
         console.log(response);
 
     $("#kill").val("");
-    cardBuild();
+    // cardBuild();
+    $(`#${id}`).remove()
 })
 })
 
@@ -105,7 +106,7 @@ $update.on('click', ()=> {  //PATCH entries
     let data = {}
     data[feature] = value
 
-    fetch(`https://expressserver-6z2l.onrender.com/api/cars/${id}`, {
+    fetch(`http://localhost:3000/api/cars/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -122,3 +123,6 @@ $update.on('click', ()=> {  //PATCH entries
         cardBuild();
     })
 })
+
+
+// https://expressserver-6z2l.onrender.com
